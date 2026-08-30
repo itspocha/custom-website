@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>MAGPII — Smart Factory, Hospital, Campus & Warehouse Solutions</title>
+<meta name="description" content="AI, IoT aur automation for real Indian factories, hospitals, campuses, stores and warehouses. Engineering Intelligence. Delivering Impact.">
+<meta property="og:title" content="MAGPII — Aapka business smart hai. Aapka system nahi.">
+<meta property="og:description" content="AI, IoT and automation for manufacturing, healthcare, education, retail, logistics and textile. Buzzwords nahi — working systems.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#071733;
+  --ink2:#0E2A57;
+  --blue:#1F6FEB;
+  --blue-d:#1257C4;
+  --cyan:#35D6F0;
+  --yellow:#FFD23F;
+  --paper:#EDF2FB;
+  --white:#FFFFFF;
+  --mut:#5B6C88;
+  --line:rgba(7,23,51,.14);
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-sm:4px 4px 0 var(--ink);
+  --r:18px;
+  --maxw:1200px;
+  /* type stacks — fallbacks keep the same silhouette if webfonts are blocked */
+  --f-display:'Anton','Archivo Black','Arial Narrow Bold','Haettenschweiler',Impact,sans-serif;
+  --f-body:'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{
+  scroll-behavior:smooth;
+  color-scheme:light only;
+  background:var(--paper) !important;
+  -webkit-text-size-adjust:100%;
+}
+body{
+  margin:0;
+  background:var(--paper) !important;
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* belt-and-braces: paints the paper even if a host wrapper forces a dark canvas */
+.page-bg{position:fixed;inset:0;background:var(--paper);z-index:-1;pointer-events:none}
+body.locked{overflow:hidden}
+h1,h2,h3{margin:0;font-family:var(--f-display);font-weight:400;letter-spacing:.5px;line-height:.94;text-transform:uppercase}
+p{margin:0}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.mono{font-family:var(--f-mono);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:11.5px}
+.eyebrow{color:var(--blue);margin-bottom:14px;display:block}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:60;background:rgba(237,242,251,.92);backdrop-filter:blur(10px);border-bottom:2px solid var(--ink)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-size:22px;letter-spacing:1px;text-decoration:none}
+.bird{width:34px;height:34px;background:var(--ink);border-radius:9px;display:grid;place-items:center;flex:none}
+.bird svg{width:20px;height:20px}
+.nav-links{display:flex;gap:22px;margin-left:auto}
+.nav-links a{text-decoration:none;font-size:11.5px}
+.nav-links a:hover{color:var(--blue)}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:999px;border:2px solid var(--ink);font-weight:800;font-size:14px;text-decoration:none;transition:transform .12s ease,box-shadow .12s ease;white-space:nowrap}
+.btn-dark{background:var(--ink);color:var(--paper);box-shadow:var(--shadow-sm)}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-light{background:var(--paper);color:var(--ink);box-shadow:var(--shadow-sm)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+.nav .btn{padding:11px 18px;font-size:13px}
+.nav-call{display:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:74px 0 54px;overflow:hidden}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(120% 80% at 60% 0%,#000 20%,transparent 78%);pointer-events:none}
+.hero-in{position:relative;display:grid;grid-template-columns:1.25fr .85fr;gap:52px;align-items:center}
+h1{font-size:clamp(38px,7.6vw,92px);text-wrap:balance}
+h1 .b{color:var(--blue);display:block}
+.hero p.sub{font-size:18px;color:var(--ink2);max-width:52ch;margin:22px 0 28px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.psst{margin-top:18px;color:var(--mut)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+.chip{background:var(--white);border:2px solid var(--ink);border-radius:999px;padding:7px 14px;font-size:12px;font-weight:700}
+
+/* console card */
+.console{background:var(--ink);border:2px solid var(--ink);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.console-top{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.14)}
+.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.25)}
+.dot.live{background:var(--cyan);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.console-top span{color:rgba(255,255,255,.6);margin-left:auto}
+.console-body{padding:18px 18px 22px}
+.readout{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.16)}
+.readout:last-child{border:0}
+.readout .k{color:rgba(255,255,255,.55);font-size:11px}
+.readout .v{font-family:var(--f-display);font-size:26px;color:#fff;letter-spacing:1px}
+.readout .v.up{color:var(--cyan)}
+.readout .v.warn{color:var(--yellow)}
+.console-foot{background:var(--blue);color:#fff;padding:12px 18px;text-align:center}
+
+/* ---------- marquee ---------- */
+.marquee{background:var(--ink);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);overflow:hidden;padding:14px 0}
+.mtrack{display:flex;gap:0;width:max-content;animation:slide 26s linear infinite}
+.marquee:hover .mtrack{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.mtrack span{font-family:var(--f-display);font-size:22px;color:var(--paper);letter-spacing:1.5px;padding:0 22px;white-space:nowrap;text-transform:uppercase}
+.mtrack i{color:var(--cyan);font-style:normal;font-size:18px;align-self:center}
+
+/* ---------- sections ---------- */
+section{padding:76px 0}
+.sec-head{margin-bottom:34px;max-width:70ch}
+h2{font-size:clamp(30px,4.6vw,58px);text-wrap:balance}
+h2 .b{color:var(--blue)}
+.sec-head p{color:var(--ink2);margin-top:14px;font-size:17px}
+
+/* switcher */
+#picker{background:var(--white);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:38px}
+.tab{border:2px solid var(--ink);border-radius:14px;background:var(--paper);padding:16px 10px;text-align:center;transition:transform .12s,box-shadow .12s,background .12s;display:flex;flex-direction:column;align-items:center;gap:9px}
+.tab svg{width:26px;height:26px;stroke:var(--ink);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.tab b{font-size:13px;font-weight:800;line-height:1.2}
+.tab:hover{transform:translate(-2px,-2px);box-shadow:var(--shadow-sm)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--paper);box-shadow:var(--shadow-sm)}
+.tab[aria-selected="true"] svg{stroke:var(--cyan)}
+
+.panel{display:grid;grid-template-columns:.92fr 1.08fr;gap:34px;align-items:start}
+.fade{animation:fadein .32s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.pain-box{background:var(--ink);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:26px;color:var(--paper);position:sticky;top:92px}
+.pain-box h3{font-size:26px;color:#fff;margin-bottom:6px}
+.pain-box .hint{color:rgba(255,255,255,.55);font-size:13px;margin-bottom:18px}
+.pain{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;padding:12px;border-radius:12px;border:1.5px solid rgba(255,255,255,.16);margin-bottom:9px;transition:background .15s,border-color .15s}
+.pain:hover{background:rgba(255,255,255,.06)}
+.box{width:20px;height:20px;border-radius:6px;border:2px solid rgba(255,255,255,.45);flex:none;margin-top:2px;display:grid;place-items:center;font-size:12px;color:var(--ink);font-weight:800}
+.pain[aria-pressed="true"]{background:rgba(53,214,240,.12);border-color:var(--cyan)}
+.pain[aria-pressed="true"] .box{background:var(--cyan);border-color:var(--cyan)}
+.pain span{font-size:14.5px;font-weight:500;color:#fff}
+.tally{margin-top:16px;padding-top:16px;border-top:1px dashed rgba(255,255,255,.2)}
+.tally p{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:14px}
+.tally b{color:var(--yellow)}
+.tally .btn{width:100%;justify-content:center}
+
+.sol-line{font-family:var(--f-display);font-size:clamp(24px,3vw,34px);line-height:1.02;margin-bottom:12px;text-transform:uppercase}
+.sol-line em{color:var(--blue);font-style:normal}
+.sol-blurb{color:var(--ink2);margin-bottom:24px;max-width:60ch}
+.sols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sol{background:var(--paper);border:2px solid var(--ink);border-radius:14px;padding:18px;transition:transform .12s,box-shadow .12s}
+.sol:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-sm)}
+.sol .n{font-family:var(--f-mono);font-size:11px;color:var(--blue);font-weight:700}
+.sol h4{margin:8px 0 6px;font-size:15.5px;font-weight:800;line-height:1.25}
+.sol p{font-size:13.5px;color:var(--mut);line-height:1.5}
+.techrow{margin-top:22px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.techrow .lbl{color:var(--mut)}
+.tchip{background:var(--white);border:1.5px solid var(--ink);border-radius:999px;padding:6px 13px;font-size:12px;font-weight:700}
+.share{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.share small{color:var(--mut);font-size:12.5px}
+
+/* stats */
+.stats{background:var(--yellow);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:0}
+.stats-in{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:38px 20px;text-align:center;border-right:2px solid var(--ink)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--f-display);font-size:clamp(38px,5vw,60px);line-height:1}
+.stat span{color:rgba(7,23,51,.7)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step{background:var(--white);border:2px solid var(--ink);border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm)}
+.step .num{width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-family:var(--f-display);font-size:19px;margin-bottom:14px}
+.step h4{margin:0 0 8px;font-family:var(--f-display);font-size:21px;font-weight:400;text-transform:uppercase;letter-spacing:.5px}
+.step p{color:var(--mut);font-size:14.5px}
+
+/* why */
+.why{background:var(--white);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.whys{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.wcard{border:2px solid var(--ink);border-radius:14px;padding:20px;background:var(--paper)}
+.wcard b{display:block;font-family:var(--f-display);font-size:19px;margin-bottom:7px;text-transform:uppercase;letter-spacing:.4px}
+.wcard p{font-size:13.5px;color:var(--mut)}
+
+/* cta */
+.cta{background:var(--ink);color:var(--paper);text-align:center;position:relative;overflow:hidden}
+.cta .glow{position:absolute;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(31,111,235,.5),transparent 62%);top:-260px;left:50%;transform:translateX(-50%);pointer-events:none}
+.cta-in{position:relative}
+.cta h2{color:#fff}
+.cta h2 .b{color:var(--cyan)}
+.cta p{color:rgba(255,255,255,.72);margin:18px auto 28px;max-width:48ch;font-size:17px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.phone-big{display:inline-flex;align-items:center;gap:12px;margin-top:30px;font-family:var(--f-display);font-size:clamp(26px,4.4vw,44px);color:#fff;text-decoration:none;letter-spacing:1px;border-bottom:3px solid var(--cyan);padding-bottom:4px}
+.phone-big:hover{color:var(--cyan)}
+
+/* footer */
+footer{background:var(--ink);color:rgba(255,255,255,.7);border-top:1px solid rgba(255,255,255,.14);padding:44px 0 26px}
+.f-in{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:30px}
+.f-in a{text-decoration:none}
+.f-in a:hover{color:var(--cyan)}
+footer .brand{color:#fff;margin-bottom:12px}
+footer .bird{background:var(--blue)}
+.f-col b{display:block;color:var(--cyan);margin-bottom:14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.f-col p,.f-col a{display:block;margin-bottom:9px;font-size:14.5px;color:rgba(255,255,255,.8)}
+.f-bot{border-top:1px solid rgba(255,255,255,.14);margin-top:32px;padding-top:20px;text-align:center;color:rgba(255,255,255,.45)}
+
+/* sticky mobile call bar */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:0;border-top:2px solid var(--ink)}
+.callbar a{flex:1;padding:15px;text-align:center;font-weight:800;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px}
+.callbar .c1{background:var(--ink);color:var(--paper)}
+.callbar .c2{background:var(--cyan);color:var(--ink)}
+
+/* modal */
+.overlay{position:fixed;inset:0;background:rgba(7,23,51,.72);backdrop-filter:blur(4px);z-index:90;display:none;align-items:center;justify-content:center;padding:20px}
+.overlay.on{display:flex}
+.modal{background:var(--paper);border:2px solid var(--ink);border-radius:22px;box-shadow:10px 10px 0 rgba(0,0,0,.35);width:100%;max-width:460px;padding:30px;position:relative;animation:pop .24s ease}
+@keyframes pop{from{opacity:0;transform:scale(.94) translateY(14px)}to{opacity:1;transform:none}}
+.x{position:absolute;top:14px;right:14px;width:34px;height:34px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:16px;font-weight:800;background:var(--white)}
+.x:hover{background:var(--ink);color:var(--paper)}
+.modal h3{font-size:28px;margin:10px 0 6px}
+.modal .q{color:var(--mut);font-size:14px;margin-bottom:18px}
+.modal input,.modal select{width:100%;padding:15px 16px;border:2px solid var(--ink);border-radius:13px;font-size:16px;font-family:inherit;background:var(--white);color:var(--ink);margin-bottom:14px}
+.modal input:focus,.modal select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,111,235,.2)}
+.modal .btn{width:100%;justify-content:center;padding:15px}
+.err{color:#C62B2B;font-size:13px;font-weight:700;margin:-8px 0 12px;display:none}
+.pips{display:flex;gap:7px;justify-content:center;margin-top:18px}
+.pip{width:26px;height:5px;border-radius:99px;background:rgba(7,23,51,.2)}
+.pip.on{background:var(--blue)}
+.back{display:block;margin:12px auto 0;font-size:13px;color:var(--mut);text-decoration:underline}
+.done{text-align:center}
+.done .tick{width:64px;height:64px;border-radius:50%;background:var(--cyan);border:2px solid var(--ink);display:grid;place-items:center;margin:0 auto 16px;font-size:30px}
+
+@media(max-width:960px){
+  .hero-in,.panel,.f-in{grid-template-columns:1fr}
+  .pain-box{position:static}
+  .tabs{grid-template-columns:repeat(3,1fr)}
+  .whys{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .console{order:-1}
+}
+@media(max-width:720px){
+  .nav-links{display:none}
+  .nav .btn-dark{display:none}
+  .nav-call{display:inline-flex;margin-left:auto}
+  .callbar{display:flex}
+  body{padding-bottom:56px}
+  section{padding:56px 0}
+  .hero{padding:48px 0 40px}
+  .sols{grid-template-columns:1fr}
+  .stats-in{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:2px solid var(--ink);padding:26px}
+  .whys{grid-template-columns:1fr}
+  .mtrack span{font-size:17px;padding:0 15px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="page-bg" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">
+      <span class="bird"><svg viewBox="0 0 24 24" fill="none"><path d="M3 15l9-9 3 3 6-6-2 8 3-1-6 8-4-3-9 9z" fill="#35D6F0"/></svg></span>
+      MAGPII
+    </a>
+    <div class="nav-links mono">
+      <a href="#picker">SOLUTIONS</a>
+      <a href="#process">PROCESS</a>
+      <a href="#why">WHY US</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+    <a class="btn btn-blue nav-call" href="tel:+917701838175">CALL</a>
+    <button class="btn btn-dark" data-open>START A CONVERSATION</button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="grid-bg"></div>
+  <div class="wrap hero-in">
+    <div>
+      <span class="mono eyebrow">MAGPII INNOVATIONS · ENGINEERING INTELLIGENCE</span>
+      <h1>Aapka business smart hai.<span class="b">Aapka system nahi.</span></h1>
+      <p class="sub">AI, IoT aur automation — real factories, hospitals, campuses, stores aur warehouses ke liye. Slide deck nahi, chalu system. Jo aaj chal raha hai Excel pe, kal dashboard pe chalega.</p>
+      <div class="hero-cta">
+        <button class="btn btn-blue" data-open>APNA SYSTEM BANWAO</button>
+        <a class="btn btn-ghost" href="#picker">PEHLE DEKH LO ↓</a>
+      </div>
+      <div class="chips">
+        <span class="chip">✦ 6 industries</span>
+        <span class="chip">✦ AI + IoT + Cloud</span>
+        <span class="chip">✦ Existing machines pe chalega</span>
+      </div>
+    </div>
+
+    <div class="console">
+      <div class="console-top mono">
+        <span class="dot live"></span><span class="dot"></span><span class="dot"></span>
+        <span>LIVE — PLANT 01</span>
+      </div>
+      <div class="console-body">
+        <div class="readout"><span class="k mono">MACHINE UPTIME</span><span class="v up" data-count="94" data-suffix="%">0%</span></div>
+        <div class="readout"><span class="k mono">DOWNTIME TODAY</span><span class="v warn" data-count="18" data-suffix="M">0M</span></div>
+        <div class="readout"><span class="k mono">REJECTION RATE</span><span class="v" data-count="2" data-suffix="%">0%</span></div>
+        <div class="readout"><span class="k mono">ORDERS ON TRACK</span><span class="v up" data-count="112" data-suffix="">0</span></div>
+      </div>
+      <div class="console-foot mono">YE SAB AAPKO PHONE PE DIKHNA CHAHIYE</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="mtrack" id="mtrack"></div>
+</div>
+
+<!-- ============ INDUSTRY PICKER ============ -->
+<section id="picker">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono eyebrow">CHOOSE YOUR LINE</span>
+      <h2>Aap kis <span class="b">line me ho?</span></h2>
+      <p>Chuniye — poora page aapke sector ke hisaab se badal jayega. Six industries, ek engineering approach.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Industries" id="tabs"></div>
+    <div id="panel" class="panel"></div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<div class="stats">
+  <div class="stats-in">
+    <div class="stat"><b>06</b><span class="mono">INDUSTRIES WE BUILD FOR</span></div>
+    <div class="stat"><b>24H</b><span class="mono">REPLY TIME</span></div>
+    <div class="stat"><b>01</b><span class="mono">CALL TO GET STARTED</span></div>
+  </div>
+</div>
+
+<!-- ============ PROCESS ============ -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono eyebrow">HOW IT WORKS</span>
+      <h2>Bakwas nahi. <span class="b">Sirf delivery.</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h4>Baat</h4>
+        <p>Ek call. Aap batao kya band pad raha hai, kaunsa kaam abhi bhi register aur Excel pe chal raha hai.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4>Build</h4>
+        <p>Sensors, dashboards, AI aur integrations — aapki purani machines aur ERP ke saath hi. Sab kuch replace karne ki zarurat nahi.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4>Live</h4>
+        <p>Team ko training, phir aap live. Support aur upgrades hum dekh lenge — system chhod ke bhagte nahi hain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono eyebrow">WHY MAGPII</span>
+      <h2>Hum vendor nahi, <span class="b">engineering partner hain.</span></h2>
+    </div>
+    <div class="whys">
+      <div class="wcard"><b>Machine-first</b><p>Purani machines ko IoT se smart banate hain. Naya plant kharidne ki zarurat nahi.</p></div>
+      <div class="wcard"><b>Ek hi platform</b><p>Monitoring, analytics, ERP/MES integration — alag-alag 5 tools ka jhanjhat khatam.</p></div>
+      <div class="wcard"><b>Floor pe kaam karta hai</b><p>Dashboards operators, supervisors aur owner — teeno ke liye. Sirf boardroom ke liye nahi.</p></div>
+      <div class="wcard"><b>Secure by default</b><p>Cloud, cybersecurity aur compliance shuru se hi built-in. Baad me patch nahi lagate.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta" id="contact">
+  <div class="glow"></div>
+  <div class="wrap cta-in">
+    <h2>Ek call. <span class="b">Baaki hum dekh lenge.</span></h2>
+    <p>Aapko pitch nahi milega — aapko ye milega ki aapke operations me exactly kahan paisa aur time lick ho raha hai.</p>
+    <div class="cta-btns">
+      <button class="btn btn-blue" data-open>BAAT KARTE HAIN</button>
+      <a class="btn btn-light" href="mailto:info@magpiitech.com?subject=Magpii%20—%20Solution%20discussion">EMAIL BHEJO</a>
+    </div>
+    <div><a class="phone-big" href="tel:+917701838175">📞 +91 77018 38175</a></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap f-in">
+    <div>
+      <a class="brand" href="#top">
+        <span class="bird"><svg viewBox="0 0 24 24" fill="none"><path d="M3 15l9-9 3 3 6-6-2 8 3-1-6 8-4-3-9 9z" fill="#fff"/></svg></span>
+        MAGPII
+      </a>
+      <p style="font-size:14.5px;max-width:34ch">Engineering Intelligence. Delivering Impact.</p>
+      <p style="font-size:13px;margin-top:10px;color:rgba(255,255,255,.45)">MAGPII Innovations Pvt. Ltd.</p>
+    </div>
+    <div class="f-col">
+      <b>Solutions</b>
+      <a href="#picker" data-go="manufacturing">Smart Manufacturing</a>
+      <a href="#picker" data-go="healthcare">Smart Healthcare</a>
+      <a href="#picker" data-go="education">Smart Education</a>
+      <a href="#picker" data-go="retail">Smart Retail</a>
+      <a href="#picker" data-go="logistics">Logistics &amp; Warehouse</a>
+      <a href="#picker" data-go="textile">Smart Textile</a>
+    </div>
+    <div class="f-col">
+      <b>Contact</b>
+      <a href="https://www.magpiitech.com" target="_blank" rel="noopener">www.magpiitech.com</a>
+      <a href="mailto:info@magpiitech.com">info@magpiitech.com</a>
+      <a href="tel:+917701838175">+91 77018 38175</a>
+      <a href="https://www.linkedin.com/company/magpii-innovations" target="_blank" rel="noopener">/company/magpii-innovations</a>
+    </div>
+  </div>
+  <div class="wrap f-bot mono">© 2026 MAGPII INNOVATIONS — AI &amp; AUTOMATION · CLOUD &amp; DATA · DIGITAL TRANSFORMATION</div>
+</footer>
+
+<!-- sticky mobile bar -->
+<div class="callbar">
+  <a class="c1" href="tel:+917701838175">📞 CALL NOW</a>
+  <a class="c2" href="#" data-open>💬 GET A CALLBACK</a>
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="overlay" id="ov" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+  <div class="modal">
+    <button class="x" id="close" aria-label="Close">✕</button>
+    <div id="mbody"></div>
+  </div>
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   MAGPII — edit these two lines to go live
+------------------------------------------------------------------- */
+const PHONE_DISPLAY = "+91 77018 38175";
+const WHATSAPP      = "917701838175";   // digits only, with country code
+/* ----------------------------------------------------------------- */
+
+const ICONS = {
+  manufacturing:'<path d="M3 21h18M4 21V10l5 3V10l5 3V10l5 3v8M8 6V3M8 6l-2 2M8 6l2 2"/>',
+  healthcare:'<path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z"/><path d="M12 9v4M10 11h4"/>',
+  education:'<path d="M3 9l9-4 9 4-9 4-9-4z"/><path d="M7 11v5c0 1 2 2 5 2s5-1 5-2v-5M21 9v5"/>',
+  retail:'<path d="M4 7h16l-1.4 11.2A2 2 0 0116.6 20H7.4a2 2 0 01-2-1.8L4 7z"/><path d="M9 7V5a3 3 0 016 0v2"/>',
+  logistics:'<path d="M2 7h11v9H2zM13 10h4l4 3v3h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
+  textile:'<path d="M8 3l4 3 4-3 3 3-2.5 2.5V21H7.5V8.5L5 6z"/>'
+};
+
+const DATA = {
+  manufacturing:{
+    label:"Manufacturing", tag:"FACTORY / PLANT",
+    line:'Machine band ho gayi. <em>Pata chala do din baad.</em>',
+    blurb:"AI-driven monitoring, predictive maintenance aur quality inspection — taaki productivity badhe, downtime ghate aur quality har shift me same rahe.",
+    pains:["Unplanned downtime — machine kab rukegi pata hi nahi chalta","Product quality har batch me alag aa jaati hai","Real-time visibility zero — sab kuch shift ke baad pata chalta hai","Bijli ka bill har mahine badhta ja raha hai","Production data aaj bhi register aur Excel pe","Maintenance tab hoti hai jab cheez toot chuki hoti hai"],
+    sols:[
+      {t:"Smart Factory Monitoring",d:"Har machine, process parameter aur production line real time me — poori operational visibility ek screen par."},
+      {t:"Predictive Maintenance",d:"AI batata hai kaunsi machine failure ke kareeb hai, taaki maintenance breakdown se pehle ho jaye."},
+      {t:"OEE & Production Analytics",d:"Overall Equipment Effectiveness track karo, bottleneck pakdo aur throughput badhao."},
+      {t:"Quality Inspection with AI",d:"AI vision se automatic defect detection — manual inspection errors aur rejection dono kam."},
+      {t:"MES & ERP Integration",d:"Purane MES, ERP aur legacy systems ke saath seamless data flow. Sab kuch replace karne ki zarurat nahi."},
+      {t:"Energy Monitoring",d:"Kaunsi line kitni bijli kha rahi hai — machine-wise data, taaki consumption sach me kam ho."}
+    ],
+    tech:["AI & ML","Industrial IoT","Edge Computing","Cloud","Computer Vision","Data Analytics","Automation","Digital Twin","Cybersecurity"]
+  },
+  healthcare:{
+    label:"Healthcare", tag:"HOSPITAL / CLINIC",
+    line:'Patient ka data 5 jagah. <em>Doctor ke paas kahin nahi.</em>',
+    blurb:"Connected systems aur AI-powered insights se better patient outcomes, tez workflows, poori compliance aur kam operational cost.",
+    pains:["Patient data alag-alag systems me bikhra hua hai","OPD me waiting time bahut zyada, workflow slow","Compliance aur data security ka tension","Operational cost har quarter badh rahi hai","Decision lene ke liye time pe insights nahi milte","Follow-up aur reports ke liye patients call karte reh jaate hain"],
+    sols:[
+      {t:"Hospital Management System",d:"Appointments, billing, OPD/IPD, pharmacy, lab, inventory aur claims — sab ek hi platform me."},
+      {t:"Electronic Health Records",d:"Secure, interoperable EHR — patient ki poori history ek jagah, har department ko accessible."},
+      {t:"Telehealth & Remote Care",d:"Teleconsultation, remote monitoring aur virtual care — care hospital ki deewaron ke bahar bhi."},
+      {t:"AI & Analytics",d:"Outcomes predict karo, resources optimize karo, readmissions kam karo, clinical decisions data se lo."},
+      {t:"Patient Engagement",d:"Mobile app, patient portal aur automated communication — engagement aur transparency dono up."},
+      {t:"Cloud & Infrastructure",d:"Scalable, secure aur compliant cloud — IT modern aur business continuity guaranteed."}
+    ],
+    tech:["AI & ML","Cloud","IoT","Big Data Analytics","Mobile Apps","Automation","Interoperability & APIs","Cybersecurity"]
+  },
+  education:{
+    label:"Education", tag:"SCHOOL / COLLEGE",
+    line:'Campus digital bola tha. <em>Attendance abhi bhi register pe hai.</em>',
+    blurb:"AI-powered digital platforms, cloud aur analytics se learning experience, campus operations aur admin efficiency — teeno better.",
+    pains:["Admissions, fees, attendance — sab manual chal raha hai","Students engage nahi hote, dropout badh raha hai","Campus safety aur access control ka koi system nahi","Data alag-alag registers aur sheets me bikhra hai","Kaunsa student peeche chhoot raha hai, pata hi nahi chalta","Parents ko har update ke liye phone karna padta hai"],
+    sols:[
+      {t:"Learning Management System",d:"Online courses, assessments, collaboration aur progress tracking — ek modern LMS me."},
+      {t:"Student Information System",d:"Student records, admissions, attendance aur academic performance ek secure digital platform par."},
+      {t:"Smart Campus",d:"Digital attendance, access control, smart classrooms aur campus monitoring — connected campus."},
+      {t:"AI & Learning Analytics",d:"At-risk students ko pehle pakdo, learning personalize karo, decisions data par lo."},
+      {t:"Parent & Student Engagement",d:"Mobile app, notifications, fee management aur real-time academic updates."},
+      {t:"Cloud & Web Platforms",d:"Scalable cloud infra jo admission season ke rush me bhi nahi girta."}
+    ],
+    tech:["AI & ML","Cloud","Mobile Apps","Data Analytics","IoT","Automation","Cybersecurity","Web Platforms"]
+  },
+  retail:{
+    label:"Retail", tag:"STORE / D2C",
+    line:'Customer aaya, item nahi mila. <em>Godown me pada tha.</em>',
+    blurb:"AI-powered insights, unified commerce aur intelligent automation se sales badhao, customers ko samjho aur profitability improve karo.",
+    pains:["Inventory ka data galat, stockout aaye din hote hain","Customer ek baar aata hai, dobara nahi","Online aur offline ka experience bilkul alag","Sales ka real-time data kabhi milta hi nahi","Manual processes se operational cost high","Kaunsa product chalega, guess pe decide hota hai"],
+    sols:[
+      {t:"POS & Retail Management",d:"Billing, inventory, promotions aur multi-store operations — real-time sync ke saath."},
+      {t:"Inventory & Supply Chain",d:"Live inventory tracking, demand forecasting aur automated replenishment — stockouts khatam."},
+      {t:"Customer Analytics & Loyalty",d:"Customer behaviour samjho, targeted campaigns chalao, repeat sales badhao."},
+      {t:"Omni-channel Commerce",d:"Online, mobile aur in-store — ek hi inventory aur ek hi customer profile."},
+      {t:"Retail Analytics & AI",d:"Sales forecasting, dynamic pricing aur product recommendations — sab AI se."},
+      {t:"Mobile & In-store Apps",d:"Digital signage, self-checkout aur staff apps — customer aur team dono empowered."}
+    ],
+    tech:["AI & ML","Cloud","Big Data Analytics","IoT","Mobile Apps","Automation","API Integration","Cybersecurity"]
+  },
+  logistics:{
+    label:"Logistics", tag:"WAREHOUSE / FLEET",
+    line:'Gaadi kahan hai? <em>Driver ko phone karke pata chalta hai.</em>',
+    blurb:"AI, IoT aur cloud se warehouse efficiency, inventory accuracy, fleet visibility aur order fulfillment — sab measurable better.",
+    pains:["Inventory kahan hai, kitna hai — clear picture nahi","Warehouse ka poora kaam manual chal raha hai","Delivery delays regular ho gayi hain","Fleet tracking ke liye driver ko call karna padta hai","Operational cost har mahine upar ja rahi hai","Stock discrepancy audit me hi pata chalti hai"],
+    sols:[
+      {t:"Warehouse Management System",d:"Inventory centralize, operations automate aur storage utilization optimize — ek WMS me."},
+      {t:"Fleet & Asset Tracking",d:"GPS, IoT sensors aur cloud dashboards se gaadiyan aur assets real time me visible."},
+      {t:"Smart Inventory Management",d:"Stock movement track karo, discrepancies kam karo, replenishment automate karo — multiple warehouses par."},
+      {t:"Logistics Analytics & AI",d:"Routes optimize karo, demand forecast karo aur supply chain performance improve karo."},
+      {t:"RFID & Barcode Automation",d:"Inward-outward scanning automate — entry errors aur manual counting dono khatam."},
+      {t:"Delivery Visibility",d:"Customer ko live status, aapko exception alerts — 'kahan hai?' calls band."}
+    ],
+    tech:["AI","Industrial IoT","Cloud","GPS","RFID","Automation","Analytics","Mobile Apps"]
+  },
+  textile:{
+    label:"Textile", tag:"MILL / UNIT",
+    line:'Loom band pada hai. <em>Supervisor round pe hai.</em>',
+    blurb:"AI, IoT aur digital transformation se productivity badhao, quality ensure karo aur poori production line par end-to-end visibility lo.",
+    pains:["Machine-wise production visibility bilkul nahi","Downtime zyada, machine efficiency kam","Quality variation aur rejection high","Manual process, data har jagah alag","Bijli ka consumption bahut zyada","Supply chain me traceability na ke barabar"],
+    sols:[
+      {t:"Real-Time Production Monitoring",d:"Har machine, shift aur operator live — production, downtime, speed, weft count ek dashboard par."},
+      {t:"Smart Machinery & IoT",d:"Purani machines ko IoT sensors se smart asset banao — health monitoring aur predictive maintenance ke saath."},
+      {t:"Quality Assurance & AI Vision",d:"AI-powered fabric inspection — defects pakdo, rejection aur wastage dono kam karo."},
+      {t:"Inventory & Order Management",d:"Yarn, fabric aur finished goods ka accurate tracking, locations ke across order management ke saath."},
+      {t:"Analytics & Performance",d:"OEE, productivity aur resource utilization par actionable insights — guesswork khatam."},
+      {t:"Sustainability & Energy",d:"Energy usage monitor karo, consumption kam karo aur sustainability goals data se achieve karo."}
+    ],
+    tech:["AI & ML","Industrial IoT","Cloud","Data Analytics","Edge Computing","Automation","Machine Vision","Mobile Apps"]
+  }
+};
+
+const KEYS = Object.keys(DATA);
+let current = "manufacturing";
+let picked = new Set();
+
+/* ---------- marquee ---------- */
+(function(){
+  const words = ["MACHINE DOWN?","DATA EXCEL PE?","STOCK KAHAN HAI?","QUALITY VARY KAR RAHI?","BILL BADH RAHA HAI?","REPORT KAL MILEGI?"];
+  const html = words.map(w=>`<span>${w}</span><i>✦</i>`).join("");
+  document.getElementById('mtrack').innerHTML = html + html;
+})();
+
+/* ---------- counters ---------- */
+(function(){
+  const els = document.querySelectorAll('[data-count]');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  els.forEach(el=>{
+    const target = +el.dataset.count, suf = el.dataset.suffix || "";
+    if(reduce){ el.textContent = target + suf; return; }
+    let n = 0, step = Math.max(1, Math.round(target/28));
+    const t = setInterval(()=>{
+      n += step;
+      if(n >= target){ n = target; clearInterval(t); }
+      el.textContent = n + suf;
+    }, 34);
+  });
+})();
+
+/* ---------- tabs ---------- */
+const tabsEl = document.getElementById('tabs');
+tabsEl.innerHTML = KEYS.map(k=>`
+  <button class="tab" role="tab" data-k="${k}" aria-selected="${k===current}">
+    <svg viewBox="0 0 24 24">${ICONS[k]}</svg>
+    <b>${DATA[k].label}</b>
+  </button>`).join("");
+
+tabsEl.addEventListener('click', e=>{
+  const b = e.target.closest('.tab');
+  if(b) select(b.dataset.k);
+});
+
+function select(k, scroll){
+  current = k; picked = new Set();
+  [...tabsEl.children].forEach(t=>t.setAttribute('aria-selected', t.dataset.k===k));
+  render();
+  try{ history.replaceState(null,"","?i="+k); }catch(_){}
+  if(scroll) document.getElementById('picker').scrollIntoView({behavior:'smooth'});
+}
+
+/* ---------- panel ---------- */
+function render(){
+  const d = DATA[current];
+  document.getElementById('panel').className = 'panel fade';
+  document.getElementById('panel').innerHTML = `
+    <div class="pain-box">
+      <span class="mono" style="color:var(--cyan)">${d.tag} · APKA DARD</span>
+      <h3 style="margin-top:10px">Inme se kitne<br>familiar lagte hain?</h3>
+      <p class="hint">Tap karo — jo select karoge wahi hum call pe discuss karenge.</p>
+      <div id="pains">
+        ${d.pains.map((p,i)=>`
+          <button class="pain" aria-pressed="false" data-i="${i}">
+            <span class="box">✓</span><span>${p}</span>
+          </button>`).join("")}
+      </div>
+      <div class="tally">
+        <p id="tally">Ek bhi select karo — hum exactly usi ka solution bhejenge.</p>
+        <button class="btn btn-blue" data-open>CALLBACK MANGWAO</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="sol-line">${d.line}</div>
+      <p class="sol-blurb">${d.blurb}</p>
+      <div class="sols">
+        ${d.sols.map((s,i)=>`
+          <div class="sol">
+            <span class="n">${String(i+1).padStart(2,'0')}</span>
+            <h4>${s.t}</h4>
+            <p>${s.d}</p>
+          </div>`).join("")}
+      </div>
+      <div class="techrow">
+        <span class="mono lbl">TECH WE USE —</span>
+        ${d.tech.map(t=>`<span class="tchip">${t}</span>`).join("")}
+      </div>
+      <div class="share">
+        <button class="btn btn-light" id="copy">🔗 COPY ${d.label.toUpperCase()} LINK</button>
+        <small>Cold call ke baad seedha ye link bhejo — page unke sector pe hi khulega.</small>
+      </div>
+    </div>`;
+
+  document.getElementById('pains').addEventListener('click', e=>{
+    const b = e.target.closest('.pain'); if(!b) return;
+    const i = b.dataset.i, on = b.getAttribute('aria-pressed')==='true';
+    b.setAttribute('aria-pressed', !on);
+    on ? picked.delete(i) : picked.add(i);
+    const n = picked.size, t = document.getElementById('tally');
+    t.innerHTML = n===0
+      ? "Ek bhi select karo — hum exactly usi ka solution bhejenge."
+      : `<b>${n} dard</b> select hue. Inhe fix karne me <b>ek call</b> lagta hai.`;
+  });
+
+  document.getElementById('copy').addEventListener('click', function(){
+    const base = (location.origin && location.origin !== "null")
+      ? location.origin + location.pathname
+      : location.href.split('?')[0];
+    const url = base + "?i=" + current;
+    const done = ()=>{ this.textContent = "✓ LINK COPIED"; setTimeout(()=>this.textContent="🔗 COPY "+DATA[current].label.toUpperCase()+" LINK", 1800); };
+    if(navigator.clipboard){ navigator.clipboard.writeText(url).then(done).catch(done); }
+    else{
+      const ta=document.createElement('textarea'); ta.value=url; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy'); ta.remove(); done();
+    }
+  });
+}
+
+/* ---------- modal / 3-step lead capture ---------- */
+const ov = document.getElementById('ov'), mbody = document.getElementById('mbody');
+let step = 1, lead = {name:"", phone:"", company:""}, lastFocus = null;
+
+document.addEventListener('click', e=>{
+  const o = e.target.closest('[data-open]');
+  if(o){ e.preventDefault(); openModal(); }
+  const g = e.target.closest('[data-go]');
+  if(g){ e.preventDefault(); select(g.dataset.go, true); }
+});
+document.getElementById('close').addEventListener('click', closeModal);
+ov.addEventListener('click', e=>{ if(e.target===ov) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape' && ov.classList.contains('on')) closeModal(); });
+
+function openModal(){ lastFocus=document.activeElement; step=1; ov.classList.add('on'); document.body.classList.add('locked'); drawStep(); }
+function closeModal(){ ov.classList.remove('on'); document.body.classList.remove('locked'); if(lastFocus) lastFocus.focus(); }
+
+function pips(n){ return `<div class="pips">${[1,2,3].map(i=>`<span class="pip ${i<=n?'on':''}"></span>`).join("")}</div>`; }
+
+function drawStep(){
+  if(step===1){
+    mbody.innerHTML = `
+      <span class="mono" style="color:var(--blue)">STEP 1 OF 3</span>
+      <h3 id="mtitle">Aapko kya bulayein?</h3>
+      <p class="q">First name kaafi hai.</p>
+      <input id="f1" placeholder="Aapka naam" value="${lead.name}" autocomplete="given-name">
+      <p class="err" id="e1">Naam toh bata do 🙂</p>
+      <button class="btn btn-blue" id="next">AAGE BADHO →</button>
+      ${pips(1)}`;
+    wire('f1','e1',v=>{ if(v.trim().length<2) return "Naam toh bata do 🙂"; lead.name=v.trim(); step=2; drawStep(); });
+  }
+  else if(step===2){
+    mbody.innerHTML = `
+      <span class="mono" style="color:var(--blue)">STEP 2 OF 3</span>
+      <h3 id="mtitle">Number de do, ${lead.name}</h3>
+      <p class="q">Ek call — sirf aapke operations ki baat. Koi spam nahi.</p>
+      <input id="f1" type="tel" inputmode="numeric" placeholder="10-digit mobile number" value="${lead.phone}" autocomplete="tel">
+      <p class="err" id="e1">10 digit ka sahi number daalo</p>
+      <button class="btn btn-blue" id="next">AAGE BADHO →</button>
+      <a class="back" href="#" id="back">← peeche</a>
+      ${pips(2)}`;
+    wire('f1','e1',v=>{ const d=v.replace(/\D/g,''); if(d.length<10) return "10 digit ka sahi number daalo"; lead.phone=d.slice(-10); step=3; drawStep(); });
+  }
+  else if(step===3){
+    mbody.innerHTML = `
+      <span class="mono" style="color:var(--blue)">STEP 3 OF 3</span>
+      <h3 id="mtitle">Business ka naam?</h3>
+      <p class="q">Taaki call se pehle hum thoda homework kar sakein.</p>
+      <input id="f1" placeholder="Company / unit ka naam" value="${lead.company}" autocomplete="organization">
+      <p class="err" id="e1">Naam likh do</p>
+      <select id="ind">
+        ${KEYS.map(k=>`<option value="${k}" ${k===current?'selected':''}>${DATA[k].label}</option>`).join("")}
+      </select>
+      <button class="btn btn-blue" id="next">BHEJ DO 🚀</button>
+      <a class="back" href="#" id="back">← peeche</a>
+      ${pips(3)}`;
+    wire('f1','e1',v=>{ if(v.trim().length<2) return "Naam likh do"; lead.company=v.trim(); current=document.getElementById('ind').value; finish(); });
+  }
+  else{
+    const d = DATA[current];
+    const chosen = [...picked].map(i=>"• "+d.pains[i]);
+    const msg =
+      `Hi MAGPII 👋%0A%0A`+
+      `Naam: ${enc(lead.name)}%0A`+
+      `Business: ${enc(lead.company)}%0A`+
+      `Number: ${lead.phone}%0A`+
+      `Industry: ${enc(d.label)}%0A`+
+      (chosen.length ? `%0AMain problems:%0A${enc(chosen.join("\n"))}%0A` : ``)+
+      `%0AEk call schedule kar sakte hain?`;
+    mbody.innerHTML = `
+      <div class="done">
+        <div class="tick">✓</div>
+        <h3 id="mtitle">Ho gaya, ${lead.name}!</h3>
+        <p class="q">Ab bas ek tap — WhatsApp par bhej do, hum 24 hrs me reply karte hain.</p>
+        <a class="btn btn-blue" href="https://wa.me/${WHATSAPP}?text=${msg}" target="_blank" rel="noopener" style="width:100%;justify-content:center">💬 WHATSAPP PE BHEJO</a>
+        <a class="btn btn-ghost" href="tel:+${WHATSAPP}" style="width:100%;justify-content:center;margin-top:10px">📞 ABHI CALL KARO — ${PHONE_DISPLAY}</a>
+      </div>`;
+  }
+}
+
+function enc(s){ return encodeURIComponent(s); }
+
+function wire(inputId, errId, onNext){
+  const inp = document.getElementById(inputId), err = document.getElementById(errId);
+  const go = ()=>{ const m = onNext(inp.value); if(m){ err.textContent = m; err.style.display='block'; inp.focus(); } };
+  document.getElementById('next').addEventListener('click', go);
+  inp.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); go(); } });
+  const b = document.getElementById('back');
+  if(b) b.addEventListener('click', e=>{ e.preventDefault(); step--; drawStep(); });
+  setTimeout(()=>inp.focus(), 60);
+}
+
+function finish(){ step = 4; drawStep(); }
+
+/* ---------- deep link ?i=textile ---------- */
+(function(){
+  const p = new URLSearchParams(location.search).get('i');
+  if(p && DATA[p]) current = p;
+  [...tabsEl.children].forEach(t=>t.setAttribute('aria-selected', t.dataset.k===current));
+  render();
+  if(p && DATA[p]) setTimeout(()=>document.getElementById('picker').scrollIntoView({behavior:'smooth'}), 320);
+})();
+</script>
+</body>
+</html>
